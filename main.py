@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def rac(x, n = 1):
   sign = np.angle(x)
@@ -7,8 +8,8 @@ def rac(x, n = 1):
   result = []
 
   for i in range(n):
-    result.append(pow(x,1/n)*(np.cos(sign)+np.sin(sign)*1j))
+    result.append(pow(x,1/n)*(np.cos(sign/n + 2*i* math.pi/n)+np.sin(sign/n + 2*i*math.pi/n)*1j))
   
   return result
 
-print(rac(4,2))
+print(rac(1j,2))
